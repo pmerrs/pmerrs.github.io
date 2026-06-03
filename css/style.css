@@ -1,0 +1,663 @@
+/* ==========================================================================
+   ANDROID 16 / MATERIAL YOU DESIGN SYSTEM
+   ========================================================================== */
+
+:root {
+  /* Default seed HSL for Slate Gray preset */
+  --seed-h: 215;
+  --seed-s: 12%;
+  
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Elastic physics curves matching Android 16 system animation states */
+  --transition-spring: all 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+  --transition-fluid: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  
+  --md-shape-corner-extra-small: 6px;
+  --md-shape-corner-small: 12px;
+  --md-shape-corner-medium: 20px;
+  --md-shape-corner-large: 28px;
+  --md-shape-corner-extra-large: 36px; /* Superellipse-like widget corners */
+  --md-shape-corner-full: 9999px;
+  
+  --md-elevation-1: 0px 4px 12px rgba(0, 0, 0, 0.04), 0px 1px 3px rgba(0, 0, 0, 0.08);
+  --md-elevation-2: 0px 8px 24px rgba(0, 0, 0, 0.08), 0px 2px 6px rgba(0, 0, 0, 0.12);
+  --md-elevation-3: 0px 16px 40px rgba(0, 0, 0, 0.15), 0px 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+/* --- Dark Mode Configuration (Default Android 16 Atmosphere) --- */
+html[data-mode="dark"] {
+  --md-sys-color-primary: hsl(var(--seed-h), var(--seed-s), 70%); /* Cool Silver Gray */
+  --md-sys-color-on-primary: hsl(var(--seed-h), 12%, 10%);
+  --md-sys-color-primary-container: hsl(var(--seed-h), 8%, 18%);
+  --md-sys-color-on-primary-container: hsl(var(--seed-h), 8%, 88%);
+  
+  --md-sys-color-secondary: hsl(var(--seed-h), 6%, 60%);
+  --md-sys-color-on-secondary: hsl(var(--seed-h), 8%, 12%);
+  --md-sys-color-secondary-container: hsl(var(--seed-h), 6%, 15%);
+  --md-sys-color-on-secondary-container: hsl(var(--seed-h), 6%, 82%);
+  
+  --md-sys-color-background: #000000; /* Pure Black Background matching pm.png */
+  --md-sys-color-on-background: hsl(var(--seed-h), 6%, 92%);
+  
+  --md-sys-color-surface: hsla(var(--seed-h), 6%, 7%, 0.7); /* Dark Charcoal acrylic sheets */
+  --md-sys-color-on-surface: hsl(var(--seed-h), 6%, 92%);
+  --md-sys-color-surface-variant: hsla(var(--seed-h), 6%, 10%, 0.6);
+  --md-sys-color-on-surface-variant: hsl(var(--seed-h), 6%, 75%);
+  
+  --md-sys-color-outline: hsla(var(--seed-h), 8%, 35%, 0.3);
+  --md-sys-color-outline-variant: hsla(var(--seed-h), 8%, 18%, 0.2);
+  
+  --md-sys-color-surface-container-low: hsla(var(--seed-h), 6%, 5%, 0.65);
+  --md-sys-color-surface-container: hsla(var(--seed-h), 6%, 7%, 0.7);
+  --md-sys-color-surface-container-high: hsla(var(--seed-h), 6%, 9%, 0.8);
+  
+  --glow-color-1: hsla(var(--seed-h), var(--seed-s), 70%, 0.07);
+  --glow-color-2: hsla(var(--seed-h), 6%, 60%, 0.04);
+  --pulse-color: hsl(var(--seed-h), var(--seed-s), 70%);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* --- Light Mode Configuration (Fresh Android 16 Atmosphere) --- */
+html[data-mode="light"] {
+  --md-sys-color-primary: hsl(var(--seed-h), var(--seed-s), 35%);
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: hsl(var(--seed-h), 14%, 90%);
+  --md-sys-color-on-primary-container: hsl(var(--seed-h), 14%, 12%);
+  
+  --md-sys-color-secondary: hsl(var(--seed-h), 8%, 45%);
+  --md-sys-color-on-secondary: #FFFFFF;
+  --md-sys-color-secondary-container: hsl(var(--seed-h), 8%, 90%);
+  --md-sys-color-on-secondary-container: hsl(var(--seed-h), 8%, 20%);
+  
+  --md-sys-color-background: hsl(var(--seed-h), 10%, 94%);
+  --md-sys-color-on-background: hsl(var(--seed-h), 8%, 12%);
+  
+  --md-sys-color-surface: hsla(var(--seed-h), 8%, 98%, 0.75);
+  --md-sys-color-on-surface: hsl(var(--seed-h), 8%, 12%);
+  --md-sys-color-surface-variant: hsla(var(--seed-h), 8%, 91%, 0.65);
+  --md-sys-color-on-surface-variant: hsl(var(--seed-h), 8%, 40%);
+  
+  --md-sys-color-outline: hsla(var(--seed-h), 12%, 55%, 0.35);
+  --md-sys-color-outline-variant: hsla(var(--seed-h), 12%, 84%, 0.3);
+  
+  --md-sys-color-surface-container-low: hsla(var(--seed-h), 8%, 96%, 0.6);
+  --md-sys-color-surface-container: hsla(var(--seed-h), 8%, 93%, 0.7);
+  --md-sys-color-surface-container-high: hsla(var(--seed-h), 8%, 89%, 0.8);
+  
+  --glow-color-1: hsla(var(--seed-h), var(--seed-s), 35%, 0.05);
+  --glow-color-2: hsla(var(--seed-h), 8%, 45%, 0.03);
+  --pulse-color: hsl(var(--seed-h), var(--seed-s), 35%);
+  --shadow-color: rgba(0, 0, 0, 0.06);
+}
+
+/* --- Base Reset & Atmosphere --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+  
+  /* Android 16-like organic wallpaper meshes */
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(var(--seed-h), 15%, 25%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(var(--seed-h), 12%, 20%, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, hsla(var(--seed-h), 8%, 15%, 0.04) 0px, transparent 60%);
+  background-attachment: fixed;
+}
+
+html[data-mode="light"] body {
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(var(--seed-h), 25%, 85%, 0.3) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(var(--seed-h), 20%, 88%, 0.2) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, hsla(var(--seed-h), 15%, 91%, 0.1) 0px, transparent 60%);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline-variant);
+  border-radius: var(--md-shape-corner-full);
+}
+
+/* --- Background Glow Orbs --- */
+.glow-shadow {
+  position: fixed;
+  border-radius: var(--md-shape-corner-full);
+  filter: blur(140px);
+  z-index: -1;
+  pointer-events: none;
+  transition: background 0.5s ease;
+}
+.shadow-1 {
+  width: 480px;
+  height: 480px;
+  background: var(--glow-color-1);
+  top: -120px;
+  right: 15%;
+}
+.shadow-2 {
+  width: 420px;
+  height: 420px;
+  background: var(--glow-color-2);
+  bottom: 8%;
+  left: 8%;
+}
+
+/* --- Hub Widget Grid System --- */
+.hub-container {
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Grid spacing matching homescreen configs */
+}
+
+/* --- Android Control/Utility Header --- */
+.utility-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding: 0 4px;
+}
+.theme-selection-wrapper {
+  position: relative;
+}
+
+/* --- Glassmorphic Theme Switch Panel --- */
+.theme-palette-popup {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  background-color: var(--md-sys-color-surface-container-high);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-radius: var(--md-shape-corner-medium);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--md-elevation-2);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  pointer-events: none;
+  transition: var(--transition-fluid);
+  z-index: 20;
+}
+.theme-palette-popup.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.palette-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--md-shape-corner-full);
+  border: 2px solid transparent;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.2s ease;
+}
+.palette-swatch:hover {
+  transform: scale(1.18);
+}
+.palette-swatch.active {
+  border-color: var(--md-sys-color-on-surface);
+}
+.palette-swatch.slate-gray { background-color: #64748B; }
+.palette-swatch.warm-gray { background-color: #78716C; }
+.palette-swatch.cool-gray { background-color: #475569; }
+.palette-swatch.charcoal { background-color: #27272A; }
+
+/* Custom wallpaper seed tint picker */
+.custom-seed-picker-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--md-shape-corner-full);
+  background-color: var(--md-sys-color-outline-variant);
+  cursor: pointer;
+  border: 1.5px dashed var(--md-sys-color-outline);
+  transition: transform 0.2s ease;
+}
+.custom-seed-picker-container:hover {
+  transform: scale(1.18);
+}
+.custom-seed-picker-container input[type="color"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* --- Tactile Ink Ripple --- */
+.ripple-target {
+  position: relative;
+  overflow: hidden;
+}
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  background-color: var(--md-sys-color-on-surface);
+  opacity: 0.1;
+  pointer-events: none;
+}
+@keyframes ripple-animation {
+  to {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+/* --- Android 16 Widget Cards (Glassmorphism & Depth) --- */
+.card {
+  border-radius: var(--md-shape-corner-extra-large);
+  padding: 24px;
+  backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  box-shadow: var(--md-elevation-1);
+  transition: var(--transition-spring);
+  position: relative;
+  overflow: hidden;
+}
+.card-filled {
+  background-color: var(--md-sys-color-surface);
+}
+.card-outlined {
+  background-color: transparent;
+}
+.card:hover {
+  border-color: var(--md-sys-color-outline);
+  box-shadow: var(--md-elevation-2);
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* --- Homescreen Buttons --- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 28px;
+  border-radius: var(--md-shape-corner-large); /* Android 16 pill look */
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.1px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition-fluid);
+}
+.button span, .button svg {
+  pointer-events: none;
+}
+.button-filled {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  box-shadow: 0 4px 10px hsla(var(--seed-h), var(--seed-s), 50%, 0.15);
+}
+.button-filled:hover {
+  background-color: var(--md-sys-color-on-surface-variant);
+  color: var(--md-sys-color-background);
+}
+.button-outlined {
+  background-color: transparent;
+  color: var(--md-sys-color-on-surface);
+  border: 1.5px solid var(--md-sys-color-outline);
+}
+.button-outlined:hover {
+  background-color: var(--md-sys-color-surface-variant);
+  border-color: var(--md-sys-color-on-surface);
+}
+
+.icon-button {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--md-shape-corner-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition-fluid);
+}
+.icon-button:hover {
+  border-color: var(--md-sys-color-outline);
+  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-color-surface-container-high);
+}
+
+/* SVG transformations */
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.25), stroke 0.25s ease, fill 0.25s ease;
+}
+.button:hover svg,
+.icon-button:hover svg {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+/* --- Android Profile Widget --- */
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 38px 24px;
+}
+.profile-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: var(--md-shape-corner-full);
+  background: var(--md-sys-color-surface-variant);
+  margin-bottom: 20px;
+  border: 4px solid var(--md-sys-color-surface);
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.18);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile-name {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+}
+.profile-bio {
+  font-size: 0.95rem;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 18px;
+  max-width: 320px;
+  line-height: 1.45;
+}
+.profile-badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--md-sys-color-surface-variant);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  padding: 6px 14px;
+  border-radius: var(--md-shape-corner-large);
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface-variant);
+}
+.badge span {
+  pointer-events: none;
+}
+
+/* Gray Pulse Badge (Android Status Dot) */
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--md-shape-corner-full);
+  background-color: var(--pulse-color);
+  animation: pulse-glow-default 2s infinite ease-in-out;
+}
+.pulse-dot.status-online {
+  background-color: #10B981; /* Emerald Green */
+  animation: pulse-glow-online 2s infinite ease-in-out;
+}
+.pulse-dot.status-idle {
+  background-color: #F59E0B; /* Amber/Yellow */
+  animation: pulse-glow-idle 2s infinite ease-in-out;
+}
+.pulse-dot.status-dnd {
+  background-color: #EF4444; /* Ruby Red */
+  animation: pulse-glow-dnd 2s infinite ease-in-out;
+}
+.pulse-dot.status-offline {
+  background-color: #6B7280; /* Neutral Gray */
+  animation: none; /* Solid no-pulse */
+}
+
+@keyframes pulse-glow-default {
+  0%, 100% { transform: scale(0.85); box-shadow: 0 0 0 0px hsla(var(--seed-h), 20%, 70%, 0.4); }
+  50% { transform: scale(1.2); box-shadow: 0 0 0 8px hsla(var(--seed-h), 20%, 70%, 0); }
+}
+@keyframes pulse-glow-online {
+  0%, 100% { transform: scale(0.85); box-shadow: 0 0 0 0px rgba(16, 185, 129, 0.45); }
+  50% { transform: scale(1.2); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+}
+@keyframes pulse-glow-idle {
+  0%, 100% { transform: scale(0.85); box-shadow: 0 0 0 0px rgba(245, 158, 11, 0.45); }
+  50% { transform: scale(1.2); box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+}
+@keyframes pulse-glow-dnd {
+  0%, 100% { transform: scale(0.85); box-shadow: 0 0 0 0px rgba(239, 68, 68, 0.45); }
+  50% { transform: scale(1.2); box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+}
+
+.profile-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* --- Android QS-Style Tiles (Links) --- */
+.links-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.link-row {
+  display: flex;
+  align-items: center;
+  padding: 18px;
+  text-decoration: none;
+  background-color: var(--md-sys-color-surface);
+}
+.link-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface);
+  border-radius: var(--md-shape-corner-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 18px;
+  transition: var(--transition-fluid);
+}
+.link-row:hover .link-icon-wrapper {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  transform: rotate(-3deg);
+}
+.link-details {
+  flex-grow: 1;
+  text-align: left;
+}
+.link-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 3px;
+}
+.link-subtitle {
+  font-size: 0.8rem;
+  color: var(--md-sys-color-on-surface-variant);
+  line-height: 1.35;
+}
+.link-arrow {
+  color: var(--md-sys-color-outline);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+}
+.link-row:hover .link-arrow {
+  transform: translateX(6px) scale(1.1);
+  color: var(--md-sys-color-on-surface);
+}
+
+/* --- Telemetry / Activity Widget --- */
+.activity-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.header-icon {
+  color: var(--md-sys-color-primary);
+}
+.activity-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.activity-subtitle {
+  font-size: 0.825rem;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 18px;
+}
+.grid-container {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+.commit-grid {
+  display: grid;
+  grid-template-rows: repeat(5, 12px);
+  grid-auto-flow: column;
+  gap: 4px;
+  width: max-content;
+}
+.commit-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+  position: relative;
+}
+.commit-cell:hover {
+  transform: scale(1.3);
+  z-index: 5;
+}
+
+.grid-legend {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.725rem;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-top: 14px;
+}
+.legend-scale {
+  display: flex;
+  gap: 3px;
+}
+.legend-cell {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+
+/* --- Android System Toast --- */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translate(-50%, 90px);
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--md-sys-color-on-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  padding: 14px 28px;
+  border-radius: var(--md-shape-corner-large); /* android pill toast */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--md-elevation-3);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.25), opacity 0.3s ease;
+}
+.toast.show {
+  transform: translate(-50%, 0px);
+  opacity: 1;
+  pointer-events: auto;
+}
+.toast-icon {
+  color: var(--md-sys-color-primary);
+}
+
+/* --- Footer --- */
+.footer {
+  text-align: center;
+  padding: 16px 0 24px 0;
+}
+.footer p {
+  font-size: 0.8rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* --- Media Queries --- */
+@media (max-width: 480px) {
+  body {
+    padding: 24px 12px;
+  }
+  .card {
+    padding: 20px;
+  }
+  .profile-avatar {
+    width: 76px;
+    height: 76px;
+    font-size: 1.9rem;
+  }
+  .profile-name {
+    font-size: 1.7rem;
+  }
+}

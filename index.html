@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="slate-gray" data-mode="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pm's stuff</title>
+  <meta name="description" content="Social media links, professional directory, and connect page for pm.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Style Link -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Minimal Background Shadows -->
+  <div class="glow-shadow shadow-1"></div>
+  <div class="glow-shadow shadow-2"></div>
+
+  <!-- Main Compact Centered Container -->
+  <div class="hub-container">
+    
+    <!-- Top Utility Bar (Modes & Themes) -->
+    <header class="utility-bar">
+
+      <button class="icon-button ripple-target" id="theme-mode-toggle" aria-label="Toggle dark mode">
+        <!-- Loaded Dynamically by app.js (Sun/Moon SVGs) -->
+      </button>
+    </header>
+
+    <!-- Profile Header Card -->
+    <section class="profile-card card card-filled">
+      <div class="profile-avatar">
+        <img src="pm.png" alt="pm" class="profile-avatar-img">
+      </div>
+      <h1 class="profile-name">pm</h1>
+      <p class="profile-bio">hello those are my social media accs</p>
+      
+      <div class="profile-badges">
+        <span class="badge">
+          <!-- Pin SVG Icon -->
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>Bashkortostan, RU</span>
+        </span>
+        <span class="badge gray-pulse" id="discord-status-badge">
+          <span class="pulse-dot" id="discord-status-dot"></span>
+          <span id="discord-status-text">Connecting...</span>
+        </span>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="profile-actions">
+        <button class="button button-filled ripple-target" id="share-profile-btn">
+          <!-- Share SVG Icon -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+          <span>Share Directory</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Social Links Stack -->
+    <section class="links-stack" id="links-stack">
+      <!-- Loaded Dynamically by app.js -->
+    </section>
+
+
+    <!-- Minimal Toast Notification -->
+    <div class="toast" id="toast">
+      <!-- Copy SVG Icon -->
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toast-icon"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      <span id="toast-message">URL Copied to clipboard!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>pm &copy; 2024-2026</p>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/links.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

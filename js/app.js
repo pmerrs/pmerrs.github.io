@@ -192,5 +192,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2500);
   }
 
-
+  // ==========================================
+  // 6. Secret Redirect Easter Egg
+  // ==========================================
+  const avatarImg = document.querySelector(".profile-avatar-img");
+  if (avatarImg) {
+    avatarImg.style.cursor = "pointer";
+    avatarImg.addEventListener("click", () => {
+      const targetPath = "/aW5kZWVkdHJvcGljYWxncm93bW92aW5nZmxvYXRpbmdyZXNwZWN0cGlua2xvdGNvbXA=";
+      window.location.href = window.location.origin + targetPath;
+    });
+  }
 });
